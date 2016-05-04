@@ -45,10 +45,10 @@ class ControlsIfBlockTest extends \PHPUnit_Framework_TestCase
 </block>
 XML;
         $root = new CompileNode();
-        $expressionNode = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
+        $expressionNode = $this->prophesize(Node::class);
         $expressionNode->evaluate()->shouldBeCalled();
 
-        $parser = $this->prophesize('Linio\Component\RuleEngine\Parser\BlocklyXmlParser');
+        $parser = $this->prophesize(BlocklyXmlParser::class);
         $parser->getNodeFromBlockXml($root, Argument::that(function ($arg) {
             return $arg['name'] == 'IF0';
         }))->willReturn(new ScalarNode(true));
@@ -59,7 +59,7 @@ XML;
         $block = new ControlsIfBlock();
         $block->setParser($parser->reveal());
         $node = $block->getNode($root, new \SimpleXmlElement($xml));
-        $this->assertInstanceOf('Linio\Component\RuleEngine\Ast\StackedExpressionNode', $node);
+        $this->assertInstanceOf(StackedExpressionNode::class, $node);
         $node->evaluate();
     }
 
@@ -131,14 +131,14 @@ XML;
 </block>
 XML;
         $root = new CompileNode();
-        $expressionNode1 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
+        $expressionNode1 = $this->prophesize(Node::class);
         $expressionNode1->evaluate()->shouldNotBeCalled();
-        $expressionNode2 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
+        $expressionNode2 = $this->prophesize(Node::class);
         $expressionNode2->evaluate()->shouldNotBeCalled();
-        $expressionNode3 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
+        $expressionNode3 = $this->prophesize(Node::class);
         $expressionNode3->evaluate()->shouldBeCalled();
 
-        $parser = $this->prophesize('Linio\Component\RuleEngine\Parser\BlocklyXmlParser');
+        $parser = $this->prophesize(BlocklyXmlParser::class);
         $parser->getNodeFromBlockXml($root, Argument::that(function ($arg) {
             return $arg['name'] == 'IF0';
         }))->willReturn(new ScalarNode(false));
@@ -158,7 +158,7 @@ XML;
         $block = new ControlsIfBlock();
         $block->setParser($parser->reveal());
         $node = $block->getNode($root, new \SimpleXmlElement($xml));
-        $this->assertInstanceOf('Linio\Component\RuleEngine\Ast\StackedExpressionNode', $node);
+        $this->assertInstanceOf(StackedExpressionNode::class, $node);
         $node->evaluate();
     }
 }

@@ -14,9 +14,9 @@ class CompileNodeTest extends \PHPUnit_Framework_TestCase
 
     public function testIsEvaluating()
     {
-        $child1 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
+        $child1 = $this->prophesize(Node::class);
         $child1->evaluate()->shouldBeCalled();
-        $child2 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
+        $child2 = $this->prophesize(Node::class);
         $child2->evaluate()->shouldBeCalled();
 
         $root = new CompileNode();
@@ -27,9 +27,9 @@ class CompileNodeTest extends \PHPUnit_Framework_TestCase
 
     public function testIsAppendingMultipleChilds()
     {
-        $child1 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node')->reveal();
-        $child2 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node')->reveal();
-        $child3 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node')->reveal();
+        $child1 = $this->prophesize(Node::class)->reveal();
+        $child2 = $this->prophesize(Node::class)->reveal();
+        $child3 = $this->prophesize(Node::class)->reveal();
         $children = [$child2, $child3];
 
         $root = new CompileNode();

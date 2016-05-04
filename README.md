@@ -15,7 +15,7 @@ The recommended way to install Linio Rule Engine is [through composer](http://ge
 ```JSON
 {
     "require": {
-        "linio/rule-engine": "0.1.*"
+        "linio/rule-engine": "0.2.*"
     }
 }
 ```
