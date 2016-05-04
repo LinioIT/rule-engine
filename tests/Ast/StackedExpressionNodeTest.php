@@ -6,9 +6,9 @@ class StackedExpressionNodeTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsEvaluatingNode()
     {
-        $node1 = $this->prophesize(Node::class);
+        $node1 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
         $node1->evaluate()->shouldBeCalled();
-        $node2 = $this->prophesize(Node::class);
+        $node2 = $this->prophesize('Linio\Component\RuleEngine\Ast\Node');
         $node2->evaluate()->shouldBeCalled();
 
         $stack = [
