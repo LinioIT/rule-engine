@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 abstract class OperationNode extends Node
@@ -21,8 +23,6 @@ abstract class OperationNode extends Node
 
     /**
      * @param string $operator
-     * @param Node   $firstOperand
-     * @param Node   $secondOperand
      */
     public function __construct($operator, Node $firstOperand, Node $secondOperand)
     {

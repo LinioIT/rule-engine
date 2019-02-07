@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Parser;
 
-class BlocklyXmlParserTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class BlocklyXmlParserTest extends TestCase
 {
-    public function testIsParsingSimpleBlock()
+    public function testIsParsingSimpleBlock(): void
     {
         $blocklySource = <<<XML
 <xml xmlns="http://www.w3.org/1999/xhtml">
@@ -135,12 +139,11 @@ XML;
         $this->assertInstanceOf('Linio\Component\RuleEngine\Ast\StackedExpressionNode', $children[1]);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage Undefined node: foobar
-     */
-    public function testIsDetectingBadNodes()
+    public function testIsDetectingBadNodes(): void
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Undefined node: foobar');
+
         $blocklySource = <<<XML
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <block type="foobar" id="473" inline="false" x="325" y="214">

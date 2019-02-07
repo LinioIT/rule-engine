@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 class MathOperationNode extends OperationNode
@@ -20,7 +22,7 @@ class MathOperationNode extends OperationNode
                 return $this->firstOperand->evaluate() / $this->secondOperand->evaluate();
 
             case 'POWER':
-                return pow($this->firstOperand->evaluate(), $this->secondOperand->evaluate());
+                return $this->firstOperand->evaluate() ** $this->secondOperand->evaluate();
         }
 
         throw new \RuntimeException('Undefined operator: ' . $this->operator);

@@ -1,19 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Parser\Blockly;
 
-use Prophecy\Argument;
-use Linio\Component\RuleEngine\Parser\BlocklyXmlParser;
-use Linio\Component\RuleEngine\Ast\Node;
 use Linio\Component\RuleEngine\Ast\CompileNode;
+use Linio\Component\RuleEngine\Ast\Node;
 use Linio\Component\RuleEngine\Ast\ScalarNode;
-use Linio\Component\RuleEngine\Ast\IfControlNode;
-use Linio\Component\RuleEngine\Ast\IfElseControlNode;
 use Linio\Component\RuleEngine\Ast\StackedExpressionNode;
+use Linio\Component\RuleEngine\Parser\BlocklyXmlParser;
+use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 
-class ControlsIfBlockTest extends \PHPUnit_Framework_TestCase
+class ControlsIfBlockTest extends TestCase
 {
-    public function testIsBuildingSimpleIfNode()
+    public function testIsBuildingSimpleIfNode(): void
     {
         $xml = <<<XML
 <block type="controls_if" id="66" inline="false" x="325" y="214">
@@ -63,7 +64,7 @@ XML;
         $node->evaluate();
     }
 
-    public function testIsBuildingCompoundIfNode()
+    public function testIsBuildingCompoundIfNode(): void
     {
         $xml = <<<XML
 <block type="controls_if" id="145" inline="false" x="325" y="214">

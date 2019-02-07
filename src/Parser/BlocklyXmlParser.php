@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Parser;
 
 use Linio\Component\RuleEngine\Ast\CompileNode;
@@ -47,10 +49,6 @@ class BlocklyXmlParser implements ParserInterface
         return $root;
     }
 
-    /**
-     * @param mixed             $root
-     * @param \SimpleXmlElement $element
-     */
     public function getNodeFromBlockXml($root, \SimpleXmlElement $element)
     {
         $block = $element->getName() === 'block' ? $element : $element->block;
@@ -62,10 +60,7 @@ class BlocklyXmlParser implements ParserInterface
         return $this->blocks[(string) $block['type']]->getNode($root, $block);
     }
 
-    /**
-     * @param Block $block
-     */
-    public function addBlock(Block $block)
+    public function addBlock(Block $block): void
     {
         $block->setParser($this);
         $this->blocks[$block->getType()] = $block;
@@ -74,7 +69,7 @@ class BlocklyXmlParser implements ParserInterface
     /**
      * @param string $type
      */
-    public function removeBlock($type)
+    public function removeBlock($type): void
     {
         unset($this->blocks[$type]);
     }

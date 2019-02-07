@@ -1,13 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine;
 
 use Linio\Component\RuleEngine\Parser\BlocklyXmlParser;
 use Linio\Type\Dictionary;
+use PHPUnit\Framework\TestCase;
 
-class InterpreterTest extends \PHPUnit_Framework_TestCase
+class InterpreterTest extends TestCase
 {
-    public function testIsEvaluatingSimpleBlock()
+    public function testIsEvaluatingSimpleBlock(): void
     {
         $blocklySource = <<<XML
 <xml xmlns="http://www.w3.org/1999/xhtml">
@@ -79,7 +82,7 @@ XML;
         $this->assertEquals(42, $context->get('item'));
     }
 
-    public function testIsEvaluatingCompoundCondition1()
+    public function testIsEvaluatingCompoundCondition1(): void
     {
         $context = new Dictionary(['item' => 11, 'item2' => 5]);
         $interpreter = new Interpreter();
@@ -90,7 +93,7 @@ XML;
         $this->assertEquals(10, $context->get('item2'));
     }
 
-    public function testIsEvaluatingCompoundCondition2()
+    public function testIsEvaluatingCompoundCondition2(): void
     {
         $context = new Dictionary(['item' => 11, 'item2' => 10]);
         $interpreter = new Interpreter();
@@ -101,7 +104,7 @@ XML;
         $this->assertEquals(20, $context->get('item2'));
     }
 
-    public function testIsEvaluatingCompoundCondition3()
+    public function testIsEvaluatingCompoundCondition3(): void
     {
         $context = new Dictionary(['item' => 11, 'item2' => 50]);
         $interpreter = new Interpreter();

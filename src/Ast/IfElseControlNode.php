@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 class IfElseControlNode extends Node
@@ -24,7 +26,7 @@ class IfElseControlNode extends Node
         $this->elseStatement = $elseStatement;
     }
 
-    public function evaluate()
+    public function evaluate(): void
     {
         foreach ($this->conditionalExpressions as $conditionalExpression) {
             if ($conditionalExpression->evaluate()) {

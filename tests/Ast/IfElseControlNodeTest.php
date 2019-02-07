@@ -1,13 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
-class IfElseControlNodeTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class IfElseControlNodeTest extends TestCase
 {
     /**
      * @dataProvider getConditionals
      */
-    public function testIsEvaluatingMultipleConditionals($conditionals, $context)
+    public function testIsEvaluatingMultipleConditionals($conditionals, $context): void
     {
         $root = new CompileNode();
 

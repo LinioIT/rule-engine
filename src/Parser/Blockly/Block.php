@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Parser\Blockly;
 
 use Linio\Component\RuleEngine\Parser\ParserInterface;
@@ -11,18 +13,11 @@ abstract class Block
      */
     protected $parser;
 
-    /**
-     * @param ParserInterface $parser
-     */
-    public function setParser(ParserInterface $parser)
+    public function setParser(ParserInterface $parser): void
     {
         $this->parser = $parser;
     }
 
-    /**
-     * @param mixed             $root
-     * @param \SimpleXmlElement $block
-     */
     abstract public function getNode($root, \SimpleXmlElement $block);
 
     /**

@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
-class StackedExpressionNodeTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class StackedExpressionNodeTest extends TestCase
 {
-    public function testIsEvaluatingNode()
+    public function testIsEvaluatingNode(): void
     {
         $node1 = $this->prophesize(Node::class);
         $node1->evaluate()->shouldBeCalled();

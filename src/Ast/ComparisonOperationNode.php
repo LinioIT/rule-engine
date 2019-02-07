@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 class ComparisonOperationNode extends OperationNode
@@ -24,7 +26,6 @@ class ComparisonOperationNode extends OperationNode
 
             case 'LTE':
                 return $this->firstOperand->evaluate() <= $this->secondOperand->evaluate();
-
         }
 
         throw new \RuntimeException('Undefined comparison operator: ' . $this->operator);

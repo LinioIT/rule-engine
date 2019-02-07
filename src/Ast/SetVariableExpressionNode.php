@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 class SetVariableExpressionNode extends Node
@@ -16,7 +18,6 @@ class SetVariableExpressionNode extends Node
 
     /**
      * @param string $key
-     * @param Node   $value
      */
     public function __construct($key, Node $value)
     {
@@ -24,7 +25,7 @@ class SetVariableExpressionNode extends Node
         $this->value = $value;
     }
 
-    public function evaluate()
+    public function evaluate(): void
     {
         $this->getContext()->set($this->key, $this->value->evaluate());
     }

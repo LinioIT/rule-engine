@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 abstract class Node
@@ -17,10 +19,7 @@ abstract class Node
         return $this->root;
     }
 
-    /**
-     * @param CompileNode $root
-     */
-    public function setRoot(CompileNode $root)
+    public function setRoot(CompileNode $root): void
     {
         $this->root = $root;
     }

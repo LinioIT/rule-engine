@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 use Linio\Type\Dictionary;
@@ -32,15 +34,12 @@ class CompileNode
     /**
      * @param Node[] $children
      */
-    public function setChildren(array $children)
+    public function setChildren(array $children): void
     {
         $this->children = $children;
     }
 
-    /**
-     * @param Node $node
-     */
-    public function addChild(Node $node)
+    public function addChild(Node $node): void
     {
         $this->children[] = $node;
     }
@@ -48,7 +47,7 @@ class CompileNode
     /**
      * @param Node[] $nodes
      */
-    public function addChildren(array $nodes)
+    public function addChildren(array $nodes): void
     {
         $this->children = array_merge($this->children, $nodes);
     }
@@ -64,12 +63,12 @@ class CompileNode
     /**
      * @param Dictionary $context
      */
-    public function setContext($context)
+    public function setContext($context): void
     {
         $this->context = $context;
     }
 
-    public function evaluate()
+    public function evaluate(): void
     {
         foreach ($this->children as $child) {
             $child->evaluate();

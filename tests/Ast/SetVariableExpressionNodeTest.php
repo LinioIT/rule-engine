@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
-use Linio\Type\Dictionary;
+use PHPUnit\Framework\TestCase;
 
-class SetVariableExpressionNodeTest extends \PHPUnit_Framework_TestCase
+class SetVariableExpressionNodeTest extends TestCase
 {
-    public function testIsEvaluatingNode()
+    public function testIsEvaluatingNode(): void
     {
         $node = new SetVariableExpressionNode('foo', new ScalarNode('bar'));
         $node->setRoot(new CompileNode());

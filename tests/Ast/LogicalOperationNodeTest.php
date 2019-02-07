@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
-class LogicalOperationNodeTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class LogicalOperationNodeTest extends TestCase
 {
-    public function testAnd()
+    public function testAnd(): void
     {
         $node = new LogicalOperationNode('AND', new ScalarNode(true), new ScalarNode(true));
         $this->assertTrue($node->evaluate());
@@ -16,7 +20,7 @@ class LogicalOperationNodeTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($node->evaluate());
     }
 
-    public function testOr()
+    public function testOr(): void
     {
         $node = new LogicalOperationNode('OR', new ScalarNode(false), new ScalarNode(false));
         $this->assertFalse($node->evaluate());
@@ -28,12 +32,11 @@ class LogicalOperationNodeTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($node->evaluate());
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage Undefined logical operator: XUL
-     */
-    public function testIsDetectingBadOperator()
+    public function testIsDetectingBadOperator(): void
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Undefined logical operator: XUL');
+
         $node = new LogicalOperationNode('XUL', new ScalarNode(true), new ScalarNode(true));
         $node->evaluate();
     }

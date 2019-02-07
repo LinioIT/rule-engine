@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 class StackedExpressionNode extends Node
@@ -17,7 +19,7 @@ class StackedExpressionNode extends Node
         $this->stack = $stack;
     }
 
-    public function evaluate()
+    public function evaluate(): void
     {
         foreach ($this->stack as $stack) {
             $stack->evaluate();

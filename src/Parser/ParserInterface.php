@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Parser;
 
 use Linio\Component\RuleEngine\Ast\CompileNode;

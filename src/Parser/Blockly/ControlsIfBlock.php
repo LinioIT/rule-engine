@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Parser\Blockly;
 
 use Linio\Component\RuleEngine\Ast\IfControlNode;

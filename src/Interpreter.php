@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine;
 
 use Linio\Component\RuleEngine\Ast\CompileNode;
@@ -25,9 +27,6 @@ class Interpreter
 
     /**
      * @param string     $inputString
-     * @param Dictionary $context
-     *
-     * @return mixed
      */
     public function evaluate($inputString, Dictionary $context)
     {
@@ -37,10 +36,7 @@ class Interpreter
         return $node->evaluate();
     }
 
-    /**
-     * @param ParserInterface $parser
-     */
-    public function setParser(ParserInterface $parser)
+    public function setParser(ParserInterface $parser): void
     {
         $this->parser = $parser;
     }

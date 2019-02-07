@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
-use Linio\Type\Dictionary;
+use PHPUnit\Framework\TestCase;
 
-class CompileNodeTest extends \PHPUnit_Framework_TestCase
+class CompileNodeTest extends TestCase
 {
-    public function testIsSettingUp()
+    public function testIsSettingUp(): void
     {
         $root = new CompileNode();
         $this->assertInstanceOf('Linio\Type\Dictionary', $root->getContext());
     }
 
-    public function testIsEvaluating()
+    public function testIsEvaluating(): void
     {
         $child1 = $this->prophesize(Node::class);
         $child1->evaluate()->shouldBeCalled();
@@ -25,7 +27,7 @@ class CompileNodeTest extends \PHPUnit_Framework_TestCase
         $root->evaluate();
     }
 
-    public function testIsAppendingMultipleChilds()
+    public function testIsAppendingMultipleChilds(): void
     {
         $child1 = $this->prophesize(Node::class)->reveal();
         $child2 = $this->prophesize(Node::class)->reveal();

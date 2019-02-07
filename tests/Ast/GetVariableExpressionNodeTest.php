@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 use Linio\Type\Dictionary;
+use PHPUnit\Framework\TestCase;
 
-class GetVariableExpressionNodeTest extends \PHPUnit_Framework_TestCase
+class GetVariableExpressionNodeTest extends TestCase
 {
-    public function testIsEvaluatingNode()
+    public function testIsEvaluatingNode(): void
     {
         $root = new CompileNode();
         $root->setContext(new Dictionary(['foo' => 'bar']));

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Linio\Component\RuleEngine\Ast;
 
 class IfControlNode extends Node
@@ -14,10 +16,6 @@ class IfControlNode extends Node
      */
     protected $statement;
 
-    /**
-     * @param Node $condition
-     * @param Node $statement
-     */
     public function __construct(Node $condition, Node $statement)
     {
         $this->condition = $condition;
