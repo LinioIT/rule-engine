@@ -12,7 +12,7 @@ class IfElseControlNode extends Node
     protected $conditionalExpressions = [];
 
     /**
-     * @var Node
+     * @var Node|null
      */
     protected $elseStatement;
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Ast;
 
+use Linio\Common\Type\Dictionary;
 use PHPUnit\Framework\TestCase;
 
 class CompileNodeTest extends TestCase
@@ -11,7 +12,7 @@ class CompileNodeTest extends TestCase
     public function testIsSettingUp(): void
     {
         $root = new CompileNode();
-        $this->assertInstanceOf('Linio\Type\Dictionary', $root->getContext());
+        $this->assertInstanceOf(Dictionary::class, $root->getContext());
     }
 
     public function testIsEvaluating(): void

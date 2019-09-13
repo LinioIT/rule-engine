@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Ast;
 
-use Linio\Type\Dictionary;
+use Linio\Common\Type\Dictionary;
 
 class CompileNode
 {
@@ -68,10 +68,12 @@ class CompileNode
         $this->context = $context;
     }
 
-    public function evaluate(): void
+    public function evaluate()
     {
         foreach ($this->children as $child) {
             $child->evaluate();
         }
+
+        return null;
     }
 }

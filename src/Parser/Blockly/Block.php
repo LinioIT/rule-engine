@@ -18,7 +18,7 @@ abstract class Block
         $this->parser = $parser;
     }
 
-    abstract public function getNode($root, \SimpleXmlElement $block);
+    abstract public function getNode($root, \SimpleXMLElement $block);
 
     /**
      * @return string

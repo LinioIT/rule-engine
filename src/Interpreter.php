@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine;
 
+use Linio\Common\Type\Dictionary;
 use Linio\Component\RuleEngine\Ast\CompileNode;
 use Linio\Component\RuleEngine\Parser\ParserInterface;
-use Linio\Type\Dictionary;
 
 class Interpreter
 {

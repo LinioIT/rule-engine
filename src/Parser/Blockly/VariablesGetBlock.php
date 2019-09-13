@@ -16,7 +16,7 @@ class VariablesGetBlock extends Block
     /**
      * {@inheritdoc}
      */
-    public function getNode($root, \SimpleXmlElement $block)
+    public function getNode($root, \SimpleXMLElement $block)
     {
         $node = new GetVariableExpressionNode((string) $block->field);
         $node->setRoot($root);

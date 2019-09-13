@@ -16,7 +16,7 @@ class MathNumberBlock extends Block
     /**
      * {@inheritdoc}
      */
-    public function getNode($root, \SimpleXmlElement $block)
+    public function getNode($root, \SimpleXMLElement $block)
     {
         $node = new ScalarNode((string) $block->field);
         $node->setRoot($root);

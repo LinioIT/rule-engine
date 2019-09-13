@@ -14,4 +14,6 @@ interface ParserInterface
      * @return CompileNode
      */
     public function parse($inputString);
+
+    public function getNodeFromBlockXml($root, \SimpleXMLElement $element);
 }

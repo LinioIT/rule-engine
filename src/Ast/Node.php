@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Ast;
 
+use Linio\Common\Type\Dictionary;
+
 abstract class Node
 {
     /**

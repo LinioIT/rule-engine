@@ -18,7 +18,7 @@ class ControlsIfBlock extends Block
     /**
      * {@inheritdoc}
      */
-    public function getNode($root, \SimpleXmlElement $block)
+    public function getNode($root, \SimpleXMLElement $block)
     {
         $conditionalExpressions = [];
         $elseStatement = null;

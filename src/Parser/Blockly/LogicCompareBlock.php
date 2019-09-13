@@ -16,7 +16,7 @@ class LogicCompareBlock extends Block
     /**
      * {@inheritdoc}
      */
-    public function getNode($root, \SimpleXmlElement $block)
+    public function getNode($root, \SimpleXMLElement $block)
     {
         $node = new ComparisonOperationNode(
             (string) $block->field,

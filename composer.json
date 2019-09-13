@@ -1,20 +1,32 @@
 {
-    "name": "linio/rule-engine",
-    "description": "Versatile rule engine that allows to apply logic to a given context.",
-    "keywords": ["linio", "rule", "rule engine"],
-    "type": "library",
-    "license": "BSD-3-Clause",
-    "require": {
-        "php": ">=7.2",
-        "linio/common": "~2.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": ">=5.0",
-        "friendsofphp/php-cs-fixer": "^2.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "Linio\\Component\\RuleEngine\\": "src"
-        }
+  "name": "linio/rule-engine",
+  "description": "Versatile rule engine that allows to apply logic to a given context.",
+  "keywords": ["linio", "rule", "rule engine"],
+  "type": "library",
+  "license": "BSD-3-Clause",
+  "require": {
+    "php": ">=7.2",
+    "linio/common": "^3.0@beta"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.4",
+    "phpstan/phpstan": "^0.11",
+    "phpunit/phpunit": ">=5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Linio\\Component\\RuleEngine\\": "src"
     }
+  },
+  "scripts": {
+    "lint": "php-cs-fixer fix --verbose --show-progress=estimating",
+    "lint:check": "php-cs-fixer fix --dry-run --verbose --show-progress=estimating",
+    "phpunit": "phpunit",
+    "phpstan": "phpstan analyze",
+    "test": [
+      "@lint:check",
+      "@phpunit",
+      "@phpstan"
+    ]
+  }
 }

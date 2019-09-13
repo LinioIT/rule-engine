@@ -39,7 +39,7 @@ class BlocklyXmlParser implements ParserInterface
      */
     public function parse($inputString)
     {
-        $xml = new \SimpleXmlElement($inputString);
+        $xml = new \SimpleXMLElement($inputString);
         $root = new CompileNode();
 
         foreach ($xml->children() as $block) {
@@ -49,7 +49,7 @@ class BlocklyXmlParser implements ParserInterface
         return $root;
     }
 
-    public function getNodeFromBlockXml($root, \SimpleXmlElement $element)
+    public function getNodeFromBlockXml($root, \SimpleXMLElement $element)
     {
         $block = $element->getName() === 'block' ? $element : $element->block;
 
