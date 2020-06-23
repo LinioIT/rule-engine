@@ -6,15 +6,9 @@ namespace Linio\Component\RuleEngine\Ast;
 
 class GetVariableExpressionNode extends Node
 {
-    /**
-     * @var string
-     */
-    protected $key;
+    protected string $key;
 
-    /**
-     * @param string $key
-     */
-    public function __construct($key)
+    public function __construct(string $key)
     {
         $this->key = $key;
     }

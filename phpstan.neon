@@ -2,3 +2,5 @@ parameters:
     level: 7
     paths:
         - src
+    ignoreErrors:
+        - '#evaluate\(\) has no return typehint specified#'

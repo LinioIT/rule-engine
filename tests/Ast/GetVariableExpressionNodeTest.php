@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Ast;
 
-use Linio\Type\Dictionary;
+use Linio\Common\Type\Dictionary;
 use PHPUnit\Framework\TestCase;
 
 class GetVariableExpressionNodeTest extends TestCase

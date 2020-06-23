@@ -4,24 +4,21 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Parser\Blockly;
 
+use Linio\Component\RuleEngine\Ast\CompileNode;
+use Linio\Component\RuleEngine\Ast\Node;
 use Linio\Component\RuleEngine\Parser\ParserInterface;
+use SimpleXMLElement;
 
 abstract class Block
 {
-    /**
-     * @var ParserInterface
-     */
-    protected $parser;
+    protected ?ParserInterface $parser;
 
     public function setParser(ParserInterface $parser): void
     {
         $this->parser = $parser;
     }
 
-    abstract public function getNode($root, \SimpleXMLElement $block);
+    abstract public function getNode(CompileNode $root, SimpleXMLElement $block): Node;
 
-    /**
-     * @return string
-     */
-    abstract public function getType();
+    abstract public function getType(): string;
 }

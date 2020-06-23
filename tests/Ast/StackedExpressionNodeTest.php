@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Linio\Component\RuleEngine\Ast;
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class StackedExpressionNodeTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testIsEvaluatingNode(): void
     {
         $node1 = $this->prophesize(Node::class);

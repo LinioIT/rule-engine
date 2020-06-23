@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Parser\Blockly;
 
+use Linio\Component\RuleEngine\Ast\CompileNode;
 use Linio\Component\RuleEngine\Ast\IfControlNode;
 use Linio\Component\RuleEngine\Ast\IfElseControlNode;
+use Linio\Component\RuleEngine\Ast\Node;
 use Linio\Component\RuleEngine\Ast\StackedExpressionNode;
+use SimpleXMLElement;
 
 class ControlsIfBlock extends Block
 {
-    public function getType()
+    public function getType(): string
     {
         return 'controls_if';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getNode($root, \SimpleXMLElement $block)
+    public function getNode(CompileNode $root, SimpleXMLElement $block): Node
     {
         $conditionalExpressions = [];
         $elseStatement = null;

@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Parser\Blockly;
 
+use Linio\Component\RuleEngine\Ast\CompileNode;
 use Linio\Component\RuleEngine\Ast\LogicalOperationNode;
+use Linio\Component\RuleEngine\Ast\Node;
+use SimpleXMLElement;
 
 class LogicOperationBlock extends Block
 {
-    public function getType()
+    public function getType(): string
     {
         return 'logic_operation';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getNode($root, \SimpleXMLElement $block)
+    public function getNode(CompileNode $root, SimpleXMLElement $block): Node
     {
         $node = new LogicalOperationNode(
             (string) $block->field,

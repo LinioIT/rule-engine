@@ -6,26 +6,16 @@ namespace Linio\Component\RuleEngine\Ast;
 
 class SetVariableExpressionNode extends Node
 {
-    /**
-     * @var string
-     */
-    protected $key;
+    protected string $key;
+    protected Node $value;
 
-    /**
-     * @var Node
-     */
-    protected $value;
-
-    /**
-     * @param string $key
-     */
-    public function __construct($key, Node $value)
+    public function __construct(string $key, Node $value)
     {
         $this->key = $key;
         $this->value = $value;
     }
 
-    public function evaluate(): void
+    public function evaluate()
     {
         $this->getContext()->set($this->key, $this->value->evaluate());
     }

@@ -9,16 +9,11 @@ class IfElseControlNode extends Node
     /**
      * @var IfControlNode[]
      */
-    protected $conditionalExpressions = [];
-
-    /**
-     * @var Node|null
-     */
-    protected $elseStatement;
+    protected array $conditionalExpressions = [];
+    protected ?Node $elseStatement;
 
     /**
      * @param IfControlNode[] $conditionalExpressions
-     * @param Node            $elseStatement
      */
     public function __construct(array $conditionalExpressions, Node $elseStatement = null)
     {
@@ -26,7 +21,7 @@ class IfElseControlNode extends Node
         $this->elseStatement = $elseStatement;
     }
 
-    public function evaluate(): void
+    public function evaluate()
     {
         foreach ($this->conditionalExpressions as $conditionalExpression) {
             if ($conditionalExpression->evaluate()) {

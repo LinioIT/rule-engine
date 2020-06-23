@@ -11,9 +11,12 @@ use Linio\Component\RuleEngine\Ast\StackedExpressionNode;
 use Linio\Component\RuleEngine\Parser\BlocklyXmlParser;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class ControlsIfBlockTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testIsBuildingSimpleIfNode(): void
     {
         $xml = <<<XML

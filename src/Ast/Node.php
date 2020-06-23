@@ -8,15 +8,9 @@ use Linio\Common\Type\Dictionary;
 
 abstract class Node
 {
-    /**
-     * @var CompileNode
-     */
-    protected $root;
+    protected CompileNode $root;
 
-    /**
-     * @return CompileNode
-     */
-    public function getRoot()
+    public function getRoot(): CompileNode
     {
         return $this->root;
     }
@@ -26,10 +20,7 @@ abstract class Node
         $this->root = $root;
     }
 
-    /**
-     * @return Dictionary
-     */
-    public function getContext()
+    public function getContext(): Dictionary
     {
         return $this->root->getContext();
     }

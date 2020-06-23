@@ -9,7 +9,7 @@ class StackedExpressionNode extends Node
     /**
      * @var Node[]
      */
-    protected $stack = [];
+    protected array $stack = [];
 
     /**
      * @param Node[] $stack
@@ -19,7 +19,7 @@ class StackedExpressionNode extends Node
         $this->stack = $stack;
     }
 
-    public function evaluate(): void
+    public function evaluate()
     {
         foreach ($this->stack as $stack) {
             $stack->evaluate();

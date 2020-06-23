@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine;
 
+use Linio\Common\Type\Dictionary;
 use Linio\Component\RuleEngine\Parser\BlocklyXmlParser;
-use Linio\Type\Dictionary;
 use PHPUnit\Framework\TestCase;
 
 class InterpreterTest extends TestCase

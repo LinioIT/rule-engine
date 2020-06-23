@@ -6,9 +6,12 @@ namespace Linio\Component\RuleEngine\Ast;
 
 use Linio\Common\Type\Dictionary;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class CompileNodeTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testIsSettingUp(): void
     {
         $root = new CompileNode();

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Linio\Component\RuleEngine\Parser;
 
 use Linio\Component\RuleEngine\Ast\CompileNode;
+use Linio\Component\RuleEngine\Ast\Node;
 use Linio\Component\RuleEngine\Parser\Blockly\Block;
 use Linio\Component\RuleEngine\Parser\Blockly\ControlsIfBlock;
 use Linio\Component\RuleEngine\Parser\Blockly\LogicCompareBlock;
@@ -14,6 +15,8 @@ use Linio\Component\RuleEngine\Parser\Blockly\MathNumberBlock;
 use Linio\Component\RuleEngine\Parser\Blockly\TextBlock;
 use Linio\Component\RuleEngine\Parser\Blockly\VariablesGetBlock;
 use Linio\Component\RuleEngine\Parser\Blockly\VariablesSetBlock;
+use RuntimeException;
+use SimpleXMLElement;
 
 class BlocklyXmlParser implements ParserInterface
 {
@@ -34,12 +37,9 @@ class BlocklyXmlParser implements ParserInterface
         $this->addBlock(new VariablesGetBlock());
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function parse($inputString)
+    public function parse(string $inputString): CompileNode
     {
-        $xml = new \SimpleXMLElement($inputString);
+        $xml = new SimpleXMLElement($inputString);
         $root = new CompileNode();
 
         foreach ($xml->children() as $block) {
@@ -49,12 +49,12 @@ class BlocklyXmlParser implements ParserInterface
         return $root;
     }
 
-    public function getNodeFromBlockXml($root, \SimpleXMLElement $element)
+    public function getNodeFromBlockXml(CompileNode $root, SimpleXMLElement $element): Node
     {
         $block = $element->getName() === 'block' ? $element : $element->block;
 
         if (!isset($this->blocks[(string) $block['type']])) {
-            throw new \RuntimeException('Undefined node: ' . $block['type']);
+            throw new RuntimeException('Undefined node: ' . $block['type']);
         }
 
         return $this->blocks[(string) $block['type']]->getNode($root, $block);
@@ -66,10 +66,7 @@ class BlocklyXmlParser implements ParserInterface
         $this->blocks[$block->getType()] = $block;
     }
 
-    /**
-     * @param string $type
-     */
-    public function removeBlock($type): void
+    public function removeBlock(string $type): void
     {
         unset($this->blocks[$type]);
     }

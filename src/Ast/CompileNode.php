@@ -9,14 +9,10 @@ use Linio\Common\Type\Dictionary;
 class CompileNode
 {
     /**
-     * @var array
+     * @var Node[]
      */
-    protected $children;
-
-    /**
-     * @var Dictionary
-     */
-    protected $context;
+    protected array $children = [];
+    protected Dictionary $context;
 
     public function __construct()
     {
@@ -26,7 +22,7 @@ class CompileNode
     /**
      * @return Node[]
      */
-    public function getChildren()
+    public function getChildren(): array
     {
         return $this->children;
     }
@@ -52,18 +48,12 @@ class CompileNode
         $this->children = array_merge($this->children, $nodes);
     }
 
-    /**
-     * @return Dictionary
-     */
-    public function getContext()
+    public function getContext(): Dictionary
     {
         return $this->context;
     }
 
-    /**
-     * @param Dictionary $context
-     */
-    public function setContext($context): void
+    public function setContext(Dictionary $context): void
     {
         $this->context = $context;
     }

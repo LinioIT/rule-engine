@@ -6,15 +6,8 @@ namespace Linio\Component\RuleEngine\Ast;
 
 class IfControlNode extends Node
 {
-    /**
-     * @var Node
-     */
-    protected $condition;
-
-    /**
-     * @var Node
-     */
-    protected $statement;
+    protected Node $condition;
+    protected Node $statement;
 
     public function __construct(Node $condition, Node $statement)
     {

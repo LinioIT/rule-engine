@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Ast;
 
+use RuntimeException;
+
 class ComparisonOperationNode extends OperationNode
 {
     public function evaluate()
@@ -28,6 +30,6 @@ class ComparisonOperationNode extends OperationNode
                 return $this->firstOperand->evaluate() <= $this->secondOperand->evaluate();
         }
 
-        throw new \RuntimeException('Undefined comparison operator: ' . $this->operator);
+        throw new RuntimeException('Undefined comparison operator: ' . $this->operator);
     }
 }

@@ -5,13 +5,14 @@
   "type": "library",
   "license": "BSD-3-Clause",
   "require": {
-    "php": ">=7.2",
-    "linio/common": "^3.0@beta"
+    "php": "^7.4",
+    "linio/common": "^3.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.4",
-    "phpstan/phpstan": "^0.11",
-    "phpunit/phpunit": ">=5.0"
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "phpstan/phpstan": "^0.12",
+    "phpunit/phpunit": "^9.0",
+    "phpspec/prophecy-phpunit": "^2.0"
   },
   "autoload": {
     "psr-4": {

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Linio\Component\RuleEngine\Ast;
 
+use RuntimeException;
+
 class MathOperationNode extends OperationNode
 {
     public function evaluate()
@@ -25,6 +27,6 @@ class MathOperationNode extends OperationNode
                 return $this->firstOperand->evaluate() ** $this->secondOperand->evaluate();
         }
 
-        throw new \RuntimeException('Undefined operator: ' . $this->operator);
+        throw new RuntimeException('Undefined operator: ' . $this->operator);
     }
 }
