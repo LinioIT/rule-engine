@@ -8,9 +8,9 @@ use Linio\Common\Type\Dictionary;
 
 abstract class Node
 {
-    protected CompileNode $root;
+    protected ?CompileNode $root = null;
 
-    public function getRoot(): CompileNode
+    public function getRoot(): ?CompileNode
     {
         return $this->root;
     }
