@@ -3,4 +3,4 @@ parameters:
     paths:
         - src
     ignoreErrors:
-        - '#evaluate\(\) has no return typehint specified#'
+        - '#evaluate\(\) has no return type specified#'

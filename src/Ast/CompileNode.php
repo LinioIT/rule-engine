@@ -58,7 +58,7 @@ class CompileNode
         $this->context = $context;
     }
 
-    public function evaluate()
+    public function evaluate(): mixed
     {
         foreach ($this->children as $child) {
             $child->evaluate();

@@ -19,6 +19,7 @@ class ScalarNode extends Node
         $this->value = $value;
     }
 
+    /** @return scalar */
     public function evaluate()
     {
         return $this->value;

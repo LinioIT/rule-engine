@@ -15,6 +15,7 @@ class SetVariableExpressionNode extends Node
         $this->value = $value;
     }
 
+    /** @return void */
     public function evaluate()
     {
         $this->getContext()->set($this->key, $this->value->evaluate());

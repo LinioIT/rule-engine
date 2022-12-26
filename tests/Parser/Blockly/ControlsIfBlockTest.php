@@ -12,6 +12,7 @@ use Linio\Component\RuleEngine\Parser\BlocklyXmlParser;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\PhpUnit\ProphecyTrait;
+use SimpleXMLElement;
 
 class ControlsIfBlockTest extends TestCase
 {
@@ -62,7 +63,7 @@ XML;
 
         $block = new ControlsIfBlock();
         $block->setParser($parser->reveal());
-        $node = $block->getNode($root, new \SimpleXmlElement($xml));
+        $node = $block->getNode($root, new SimpleXMLElement($xml));
         $this->assertInstanceOf(StackedExpressionNode::class, $node);
         $node->evaluate();
     }
@@ -161,7 +162,7 @@ XML;
 
         $block = new ControlsIfBlock();
         $block->setParser($parser->reveal());
-        $node = $block->getNode($root, new \SimpleXmlElement($xml));
+        $node = $block->getNode($root, new SimpleXMLElement($xml));
         $this->assertInstanceOf(StackedExpressionNode::class, $node);
         $node->evaluate();
     }

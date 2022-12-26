@@ -8,6 +8,7 @@ use RuntimeException;
 
 class LogicalOperationNode extends OperationNode
 {
+    /** @return bool */
     public function evaluate()
     {
         switch ($this->operator) {

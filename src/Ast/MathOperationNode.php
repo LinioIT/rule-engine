@@ -8,6 +8,7 @@ use RuntimeException;
 
 class MathOperationNode extends OperationNode
 {
+    /** @return float|int */
     public function evaluate()
     {
         switch ($this->operator) {

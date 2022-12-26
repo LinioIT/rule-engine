@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Linio\Component\RuleEngine\Parser;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class BlocklyXmlParserTest extends TestCase
 {
@@ -141,7 +142,7 @@ XML;
 
     public function testIsDetectingBadNodes(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Undefined node: foobar');
 
         $blocklySource = <<<XML

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Linio\Component\RuleEngine\Ast;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class ComparisonOperationNodeTest extends TestCase
 {
@@ -64,7 +65,7 @@ class ComparisonOperationNodeTest extends TestCase
 
     public function testIsDetectingBadOperator(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Undefined comparison operator: XUL');
 
         $node = new ComparisonOperationNode('XUL', new ScalarNode(1), new ScalarNode(1));

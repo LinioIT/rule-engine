@@ -21,6 +21,7 @@ class IfElseControlNode extends Node
         $this->elseStatement = $elseStatement;
     }
 
+    /** @return void */
     public function evaluate()
     {
         foreach ($this->conditionalExpressions as $conditionalExpression) {

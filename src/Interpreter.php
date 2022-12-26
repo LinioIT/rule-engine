@@ -17,7 +17,7 @@ class Interpreter
         return $this->parser->parse($inputString);
     }
 
-    public function evaluate(string $inputString, Dictionary $context)
+    public function evaluate(string $inputString, Dictionary $context): mixed
     {
         $node = $this->parser->parse($inputString);
         $node->setContext($context);
