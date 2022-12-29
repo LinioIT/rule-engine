@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Linio\Component\RuleEngine\Ast;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class LogicalOperationNodeTest extends TestCase
 {
@@ -34,7 +35,7 @@ class LogicalOperationNodeTest extends TestCase
 
     public function testIsDetectingBadOperator(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Undefined logical operator: XUL');
 
         $node = new LogicalOperationNode('XUL', new ScalarNode(true), new ScalarNode(true));

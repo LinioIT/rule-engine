@@ -15,6 +15,7 @@ class IfControlNode extends Node
         $this->statement = $statement;
     }
 
+    /** @return bool */
     public function evaluate()
     {
         if ($this->condition->evaluate()) {

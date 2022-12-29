@@ -19,6 +19,7 @@ class StackedExpressionNode extends Node
         $this->stack = $stack;
     }
 
+    /** @return void */
     public function evaluate()
     {
         foreach ($this->stack as $stack) {

@@ -13,7 +13,7 @@ class GetVariableExpressionNode extends Node
         $this->key = $key;
     }
 
-    public function evaluate()
+    public function evaluate(): mixed
     {
         return $this->getContext()->get($this->key);
     }
