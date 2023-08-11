@@ -6,10 +6,10 @@ namespace Linio\Component\RuleEngine\Ast;
 
 class IfControlNode extends Node
 {
-    protected Node $condition;
-    protected Node $statement;
+    protected mixed $condition;
+    protected mixed $statement;
 
-    public function __construct(Node $condition, Node $statement)
+    public function __construct(mixed $condition, mixed $statement)
     {
         $this->condition = $condition;
         $this->statement = $statement;

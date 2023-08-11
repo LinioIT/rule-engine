@@ -7,10 +7,10 @@ namespace Linio\Component\RuleEngine\Ast;
 abstract class OperationNode extends Node
 {
     protected string $operator;
-    protected Node $firstOperand;
-    protected Node $secondOperand;
+    protected mixed $firstOperand;
+    protected mixed $secondOperand;
 
-    public function __construct(string $operator, Node $firstOperand, Node $secondOperand)
+    public function __construct(string $operator, mixed $firstOperand, mixed $secondOperand)
     {
         $this->operator = $operator;
         $this->firstOperand = $firstOperand;
